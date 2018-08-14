@@ -11,11 +11,11 @@
 
 sub EVENT_ITEM_CLICK_CAST {
         my %transmute = ();
-        $transmute[11668] = 1824;
-        $transmute[11669] = 1823;
+        $transmute[11668] = 11669;
+        $transmute[11669] = 11668;
 
         if($itemid && $transmute[$itemid]) {
                 $client->NukeItem($itemid);
-                $client->CastSpell($transmute[$itemid], 0, 10, 0, 0);
+                quest::summonitem($transmute[$itemid]);
         }
 }
